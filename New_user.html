@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Add New User</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+    counter-reset: Serial;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <h1>Add New User</h1>
+
+        <label>ID :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text"> <br><br>
+
+        <label for="Name">Name :</label>&nbsp;
+        <input type="text"><br><br>
+
+        <label for="Email">Email :</label>&nbsp;&nbsp;
+        <input type="email"><br><br>
+
+        <label for="Gender">Gender :</label>&nbsp;
+        <input type="radio" id="Male" name="Gender" value="Male">
+        <label for="Male">Male</label>
+        <input type="radio" id="Female" name="Gender" value="Female">
+        <label for="Female">Female</label><br><br>
+
+        <label for="Status">Status :</label>&nbsp;&nbsp;&nbsp;
+        <input type="radio" id="Active" name="Status" value="Active">
+        <label for="Active">Active</label>
+        <input type="radio" id="Inactive" name="Status" value="Inactive">
+        <label for="Inactive">Inactive</label><br><br>
+
+        <input type="Submit">&nbsp;&nbsp;
+        <input type="reset">
+    </form>
+    <script>
+        const form = document.getElementById('form');
+
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+
+  const data = new FormData(form);
+
+  console.log(Array.from(data));
+
+  try {
+    const res = await fetch(
+      'https://jsonplaceholder.typicode.com/users',
+      {
+        method: 'POST',
+        body: data,
+      },
+    );
+
+    const resData = await res.json();
+
+    console.log(resData);
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+</script>
+</body>
+</html>
