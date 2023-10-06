@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVJ Infotech Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1><u> User's Details</u></h1>
+
+    <!-- Button to Create New User -->
+    <button id="createUserButton" class="btn-create">Create New User</button>
+
+    <!-- User List Table -->
+    <table id="userTable" align="center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody">
+            <!-- User rows will be added here dynamically -->
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div id="pagination" class="center"></div>
+
+    <!-- User Detail/Edit Form Modal -->
+    <div id="userFormModal" class="modal">
+        <!-- Content for user creation/edit form goes here -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
